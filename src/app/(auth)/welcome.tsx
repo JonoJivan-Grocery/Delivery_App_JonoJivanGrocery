@@ -7,7 +7,7 @@ import Swiper from "react-native-swiper";
 import { onboarding } from "@/constants";
 import CustomButton from "@/src/components/CustomButton";
 
-const Home = () => {
+const welcome = () => {
   const swiperRef = useRef<Swiper>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -67,4 +67,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default welcome;
