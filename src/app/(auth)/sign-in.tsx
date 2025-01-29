@@ -78,7 +78,7 @@ const SignIn = () => {
 
         {/* Correct usage of the Link component with href */}
         <Link
-          href="/"
+          href="/(auth)/sign-up"
           className="text-lg text-center text-general-200 mt-10"
         >
           Don't have an account?{" "}
