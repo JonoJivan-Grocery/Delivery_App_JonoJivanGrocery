@@ -1,17 +1,16 @@
 import { View, Text, Image, ScrollView, Alert } from "react-native";
 import React, { useState } from "react";
-import InputField from "../components/InputField";
-import CustomButton from "../components/CustomButton";
 import { icons, images } from "@/constants";
-import { Link } from "expo-router"; // Assuming you are using Expo Router
-
+import { Link } from "expo-router";
+import InputField from "@/src/components/InputField";
+import CustomButton from "@/src/components/CustomButton";
 
 type FormState = {
-  email: string;
-  password: string;
-};
+    email: string;
+    password: string;
+  };
 
-const Index = () => {
+const SignIn = () => {
   // State to handle form input
   const [form, setForm] = useState({
     email: "",
@@ -20,8 +19,8 @@ const Index = () => {
 
  // Function to handle input changes
  const handleInputChange = (key: keyof FormState, value: string) => {
-  setForm((prevForm) => ({ ...prevForm, [key]: value }));
-};
+    setForm((prevForm) => ({ ...prevForm, [key]: value }));
+  };
 
   // Function to handle Sign In button press
   const onSignInPress = () => {
@@ -29,7 +28,6 @@ const Index = () => {
       Alert.alert("Error", "Please fill out all fields.");
       return;
     }
-
     // Add your authentication logic here
     Alert.alert("Success", "Signed in successfully!");
   };
@@ -91,4 +89,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default SignIn;
