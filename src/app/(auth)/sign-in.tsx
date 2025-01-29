@@ -1,7 +1,7 @@
 import { View, Text, Image, ScrollView, Alert } from "react-native";
 import React, { useState } from "react";
 import { icons, images } from "@/constants";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import InputField from "@/src/components/InputField";
 import CustomButton from "@/src/components/CustomButton";
 
@@ -30,6 +30,7 @@ const SignIn = () => {
     }
     // Add your authentication logic here
     Alert.alert("Success", "Signed in successfully!");
+    router.push("/(root)/(tabs)/home");
   };
 
   return (
