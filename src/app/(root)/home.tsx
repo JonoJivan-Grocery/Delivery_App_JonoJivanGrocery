@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import MapView, { Marker, Region } from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -33,17 +33,37 @@ const Home = () => {
     <View className="flex-1 bg-white">
       {/* Header */}
       <View className="flex-row items-center justify-between p-4 bg-white">
-        <TouchableOpacity>
-          <Icon name="bars" size={30} color="black" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => setIsOnline(!isOnline)}>
-          {isOnline ? (
-            <MaterialIcon name="wifi" size={30} color="green" />
-          ) : (
-            <MaterialIcon name="wifi-off" size={30} color="red" />
-          )}
-        </TouchableOpacity>
-      </View>
+  {/* Left Button (Bars Icon) */}
+  <TouchableOpacity>
+    <Icon name="bars" size={30} color="black" />
+  </TouchableOpacity>
+
+  {/* Toggle Button in the middle */}
+  <TouchableOpacity
+    onPress={() => setIsOnline(!isOnline)}
+    style={{
+      backgroundColor: isOnline ? 'green' : 'red',
+      borderRadius: 50,
+      padding: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <Text className="text-white font-bold">
+      {isOnline ? 'Online' : 'Offline'}
+    </Text>
+  </TouchableOpacity>
+
+  {/* Right Button (WiFi Icon) */}
+  <TouchableOpacity onPress={() => setIsOnline(!isOnline)}>
+    {isOnline ? (
+      <MaterialIcon name="wifi" size={30} color="green" />
+    ) : (
+      <MaterialIcon name="wifi-off" size={30} color="red" />
+    )}
+  </TouchableOpacity>
+</View>
+
 
       {/* Map */}
       <MapView
