@@ -13,6 +13,8 @@ interface LocationCoords {
 const Home = () => {
   const [isOnline, setIsOnline] = useState<boolean>(true);
   const [location, setLocation] = useState<LocationCoords | null>(null);
+  const [showMarker, setShowMarker] = useState<boolean>(false);
+
 
   useEffect(() => {
     // Request permission to access location
@@ -71,7 +73,7 @@ const Home = () => {
         }}
       >
         {/* Marker for current user location */}
-        {location && (
+        {location  && showMarker && (
           <Marker
             coordinate={{
               latitude: location.latitude,
@@ -81,6 +83,14 @@ const Home = () => {
           />
         )}
       </MapView>
+
+        {/* Button to show current marker */}
+        <TouchableOpacity
+        className="absolute bottom-5 right-5 bg-black bg-opacity-60 p-3 rounded-full"
+        onPress={() => setShowMarker(!showMarker)}
+      >
+        <Icon name="location-arrow" size={30} color="white" />
+      </TouchableOpacity>
     </View>
   );
 };
