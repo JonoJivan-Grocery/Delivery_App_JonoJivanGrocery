@@ -30,7 +30,7 @@ const SignIn = () => {
     }
     // Add your authentication logic here
     Alert.alert("Success", "Signed in successfully!");
-    router.push("/(root)/(tabs)/home");
+    router.push("/(root)/home");
   };
 
   return (
