@@ -36,21 +36,11 @@ const Home = () => {
     })();
   }, []);
 
-  const handleLocationButtonPress = () => {
-    if (location) {
-      setMapRegion({
-        latitude: location.latitude,
-        longitude: location.longitude,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      });
-    }
-  };
 
   return (
     <View className="flex-1 bg-white">
       {/* Header */}
-      <View className="flex-row items-center justify-between p-4 bg-white">
+      <View className="flex-row items-center justify-between py-2 px-4 bg-white">
         {/* Left Button (Bars Icon) */}
         <TouchableOpacity>
           <Icon name="bars" size={30} color="black" />
